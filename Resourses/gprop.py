@@ -14,14 +14,13 @@ for index, option in enumerate(gproperties, start=1):
 while True:
     try:
         # User input
-        user_input = input("Enter the options: ").strip().lower()
+        user_input = input("Enter the option: ").strip().lower()
 
         # Check if user_input is valid
         if user_input.isdigit():
             user_input = int(user_input)
             if 1 <= user_input <= len(gproperties):
                 selected_option = gproperties[user_input - 1]
-                print(f"You selected: {selected_option}")
                 break
             else:
                 print("Invalid input. Please enter a number within the range.")
