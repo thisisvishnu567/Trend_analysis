@@ -226,3 +226,52 @@ categories = {
         "Travel Guides & Travelogues"
     ]
 }
+
+print("Categories : ")
+for i, c in enumerate(categories, start=1):
+    print(f"{i}. {c}")
+
+while True:
+    try:
+        main_category_input = input("Enter the main category option : ").strip().lower()
+
+        if main_category_input.isdigit():
+            main_category_input = int(main_category_input)
+            if 1 <= main_category_input <= len(categories):
+                selected_category = list(categories.keys())[main_category_input - 1]
+                print(f"You selected category: {selected_category}")
+                print("Subcategories:")
+                for idx, subcat in enumerate(categories[selected_category], start=1):
+                    print(f"{idx}. {subcat}")
+                
+                while True:
+                    try:
+                        subcategory_input = input("Enter the subcategory option : ").strip().lower()
+
+                        if subcategory_input.isdigit():
+                            subcategory_input = int(subcategory_input)
+                            if 1 <= subcategory_input <= len(categories[selected_category]):
+                                selected_subcategory = categories[selected_category][subcategory_input - 1]
+                                # print(f"You selected subcategory: {selected_subcategory}")
+                                break
+                            else:
+                                print("Invalid input. Please enter a number within the range.")
+                        else:
+                            print("Invalid input. Please enter a number.")
+
+                    except KeyboardInterrupt:
+                        print("\nProcess interrupted. Exiting.")
+                        exit()
+                    except Exception as e:
+                        print(f"Error: {e}. Please try again for subcategory.")
+                break
+            else:
+                print("Invalid input. Please enter a number within the range.")
+        else:
+            print("Invalid input. Please enter a number.")
+
+    except KeyboardInterrupt:
+        print("\nProcess interrupted. Exiting.")
+        exit()
+    except Exception as e:
+        print(f"Error: {e}. Please try again for category.")
