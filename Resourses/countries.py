@@ -195,3 +195,12 @@ countries = [
   "Zambia",
   "Zimbabwe"
 ]
+
+print("Countries : ")
+for i , c in enumerate(countries , start = 1):
+    print(f"{i}. {c}")
+
+while True:
+    try:
+        user_input = input("Enter the option : ").strip().lower()
+        
