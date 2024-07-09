@@ -203,4 +203,19 @@ for i , c in enumerate(countries , start = 1):
 while True:
     try:
         user_input = input("Enter the option : ").strip().lower()
-        
+
+        if user_input.isdigit():
+            user_input = int(user_input)
+            if 1 <= user_input <= len(countries):
+                selected_option = countries[user_input-1]
+                break
+            else:
+                print("Invalid input. Please enter a number within the range.")
+        else:
+            print("Invalid input. Please enter a number.")
+
+    except KeyboardInterrupt:
+        print("\Process interrupted. Exiting")
+        break
+    except Exception as e:
+        print(f"Error: {e}. Please try again.")
